@@ -22,7 +22,7 @@ class GameTest {
                 Arguments.of("aaa"),
                 Arguments.of("asdgaggg"),
                 Arguments.of("peko"),
-                Arguments.of("paper")
+                Arguments.of("papers")
         );
     }
 
