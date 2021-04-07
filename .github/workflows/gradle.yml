@@ -47,6 +47,7 @@ jobs:
       uses: actions/download-artifact@v2
       with:
         name: buildJar
+        path: build/
     - name: Display after downloading artifact
       run: ls -al
 #     - name: Test with Gradle
