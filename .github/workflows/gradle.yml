@@ -48,8 +48,12 @@ jobs:
       with:
         name: buildJar
         path: build/
-    - name: Display after downloading artifact
+    - name: Test with Gradle
+      run:
+        ./gradlew compileTestJava
+        ./gradlew testClasses
+        ./gradlew test
+    - name: Display after test
       run: ls -al
-#     - name: Test with Gradle
-#       run: ./gradlew test
+        
   
