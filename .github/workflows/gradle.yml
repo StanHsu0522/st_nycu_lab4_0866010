@@ -52,6 +52,8 @@ jobs:
       run:
         ./gradlew test
     - name: Display after test
-      run: ls -al
+      run: ls -al ./build/reports/tests/test
+    - name: Cat test report
+      run: cat ./build/reports/tests/test/index.html
         
   
