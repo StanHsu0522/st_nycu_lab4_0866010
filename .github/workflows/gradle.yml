@@ -48,9 +48,6 @@ jobs:
       with:
         name: buildJar
         path: build/
-    - name: Compile Test with Gradle
-      run:
-        ./gradlew compileTestJava testClasses
     - name: Run test with Gradle
       run:
         ./gradlew test
