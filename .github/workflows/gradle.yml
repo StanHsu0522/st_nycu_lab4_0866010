@@ -49,11 +49,30 @@ jobs:
         name: buildJar
         path: build/
     - name: Run test with Gradle
-      run:
-        ./gradlew test
-    - name: Display after test
-      run: ls -al ./build/reports/tests/test
-    - name: Cat test report
-      run: cat ./build/reports/tests/test/index.html
+      run: ./gradlew test
+    - name: Upload artifact (test report)
+      uses: actions/upload-artifact@v2
+      with: 
+        name: testReport
+        path: build/reports/tests/
         
-  
+  assemble:
+    needs: [compile, test]
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up JDK 11
+      uses: actions/setup-java@v2
+      with:
+        java-version: '11'
+        distribution: 'adopt'
+    - name: Grant execute permission for gradlew
+      run: chmod +x gradlew
+    - name: Download artifact
+      uses: actions/download-artifact@v2
+      with:
+        name: buildJar
+        path: build/
+    - name: Assemble with Gradle
+      run: ./gradlew assemble
