@@ -79,7 +79,7 @@ jobs:
       run: ./gradlew assemble
       
   release:
-    if: ${{ github.ref == 'ref/heads/main' }}
+    if: ${{ github.ref == 'ref/heads/test' }}
     needs: [compile, test, assemble]
     runs-on: ubuntu-latest
     steps:
