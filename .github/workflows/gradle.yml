@@ -81,7 +81,7 @@ jobs:
       run: ./gradlew assemble
       
   release:
-    if: ${{ github.ref == 'ref/tags/v3.0' }}
+    if: ${{ github.ref == 'ref/tags/v3.*' }}
     needs: [compile, test, assemble]
     runs-on: ubuntu-latest
     steps:
