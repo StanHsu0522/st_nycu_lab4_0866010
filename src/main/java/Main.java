@@ -12,6 +12,9 @@ public class Main {
         game.setPlyr2(scanner.next());
         game.process();
 
+
+
+
         System.exit(0);
     }
 }
